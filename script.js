@@ -16,7 +16,7 @@ function getFullPrice(screen, service) {
     return screen + service;
 }
 
-function getTitle(title) {
+function getTitle() {
     title = title.trim();
     return title[0].toUpperCase()+title.slice(1).toLowerCase();
 }
@@ -43,7 +43,8 @@ const getRollbackMessage = function(price) {
 
 let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
 let fullPrice = getFullPrice(screenPrice, allServicePrices);
-let servicePercentPrice = getServicePercentPrices(rollback, fullPrice);
+let servicePercentPrice = getServicePercentPrices(rollback, fullPrice); 
+title = getTitle();
 
 console.log(showTypeOf(title));
 console.log(showTypeOf(screenPrice));
