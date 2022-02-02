@@ -32,9 +32,9 @@ const showTypeOf = function(variable) {
 const getRollbackMessage = function(price) {
     if(price>=30000) {
     return 'Даем скидку в 10%';
-} else if(price>=15000 && getFullPrice()<30000) {
+} else if(price>=15000 && price<30000) {
      return 'Даем скидку в 5%';
-} else if(price<15000 && getFullPrice()>0) {
+} else if(price<15000 && price>0) {
     return 'Скидка не предусмотрена';
 } else {
       return 'Что то пошло не так';
