@@ -29,12 +29,12 @@ const showTypeOf = function(variable) {
     return typeof variable;
 } 
 
-const getRollbackMessage = function() {
-    if(getFullPrice()>=30000) {
+const getRollbackMessage = function(price) {
+    if(price>=30000) {
     return 'Даем скидку в 10%';
-} else if(getFullPrice()>=15000 && getFullPrice()<30000) {
+} else if(price>=15000 && getFullPrice()<30000) {
      return 'Даем скидку в 5%';
-} else if(getFullPrice()<15000 && getFullPrice()>0) {
+} else if(price<15000 && getFullPrice()>0) {
     return 'Скидка не предусмотрена';
 } else {
       return 'Что то пошло не так';
@@ -44,6 +44,7 @@ const getRollbackMessage = function() {
 let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
 let fullPrice = getFullPrice(screenPrice, allServicePrices);
 let servicePercentPrice = getServicePercentPrices(rollback, fullPrice);
+
 console.log(showTypeOf(title));
 console.log(showTypeOf(screenPrice));
 console.log(showTypeOf(adaptive));
