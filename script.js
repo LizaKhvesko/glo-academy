@@ -50,5 +50,5 @@ console.log(showTypeOf(title));
 console.log(showTypeOf(screenPrice));
 console.log(showTypeOf(adaptive));
 console.log(screens = screens.toLowerCase().split(', '));
-console.log(getRollbackMessage());
-console.log(getServicePercentPrices());
+console.log(getRollbackMessage(fullPrice));
+console.log(servicePercentPrice);
