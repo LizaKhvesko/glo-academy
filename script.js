@@ -8,10 +8,10 @@ let fullPrice;
 let servicePercentPrice;
 let screenPrice;
 let service1;
-let service2
+let service2;
 
 const isNumber = function(num) {
-    if (num===null || num[0]===' ') {
+    if (num === null || num[0] === ' ' || num[num.length-1] === ' ') {
         return false;
     }
     return !isNaN(parseFloat(num)) && isFinite(num);
@@ -25,24 +25,23 @@ const asking = function() {
         screenPrice = prompt('Сколько будет стоить данная работа?')
     }
         while (!isNumber(screenPrice));
-    
-    adaptive = confirm('Нужен ли адаптив на сайте?');
-  
-    screenPrice = +screenPrice
+    screenPrice = +screenPrice;
+
+    adaptive = confirm('Нужен ли адаптив на сайте?');   
 }
 
 const getAllServicePrices = function() {
    let sum = 0;
-    for (let i=0; i<2; i++) {
-        if (i===0) {
+    for (let i = 0; i < 2; i++) {
+        if (i === 0) {
             service1 = prompt('Какой дополнительный тип услуги нужен?', 'service1');
-        } else if(i===1) {
+        } else if(i === 1) {
             service2 = prompt('Какой дополнительный тип услуги нужен?', 'service2');
         }
          do {
-             sum = prompt('Сколько это будет стоить?');
-            }
-         while (!isNumber(sum))  
+            sum = prompt('Сколько это будет стоить?');
+        }
+            while (!isNumber(sum))  
     sum = +sum;
     sum += sum;
     }  
@@ -59,7 +58,7 @@ function getTitle() {
 }
 
 function getServicePercentPrices(per, resultPrice) {
-    return Math.ceil(resultPrice - resultPrice*(per/100))
+    return Math.ceil(resultPrice - resultPrice * (per / 100));
 }
 
 const showTypeOf = function(variable) {
@@ -67,12 +66,12 @@ const showTypeOf = function(variable) {
 } 
 
 const getRollbackMessage = function(price) {
-    if(price>=30000) {
-    return 'Даем скидку в 10%';
-} else if(price>=15000 && price>30000) {
-     return 'Даем скидку в 5%';
-} else if(price<15000 && price>0) {
-    return 'Скидка не предусмотрена';
+    if(price >= 30000) {
+        return 'Даем скидку в 10%';
+} else if(price >= 15000 && price > 30000) {
+        return 'Даем скидку в 5%';
+} else if(price < 15000 && price > 0) {
+        return 'Скидка не предусмотрена';
 } else {
       return 'Что то пошло не так';
 }
