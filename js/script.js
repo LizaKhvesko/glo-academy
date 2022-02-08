@@ -1,3 +1,33 @@
+const calculator = document.getElementsByTagName('h1')[0];
+const buttons = document.getElementsByClassName('handler_btn');
+const plusButton = document.querySelector('.screen-btn');
+const percentItems = document.querySelectorAll('.other-items.percent');
+const numberItems = document.querySelectorAll('.other-items.number');
+const range = document.querySelector('.rollback input[type="range"]');
+const rangeValue = document.querySelector('.rollback span.range-value');
+const totalInput = document.getElementsByClassName('total-input');
+let screenPrice = totalInput[0];
+let quantity = totalInput[1];
+let allServicePrices = totalInput[2];
+let fullPrice = totalInput[3];
+let servicePercentPrice = totalInput[4];
+let screens = document.querySelectorAll('.screen');
+
+console.log(calculator);
+console.log(buttons);
+console.log(plusButton);
+console.log(percentItems);
+console.log(numberItems);
+console.log(range);
+console.log(rangeValue);
+console.log(totalInput);
+console.log(screenPrice);
+console.log(quantity);
+console.log(allServicePrices);
+console.log(fullPrice);
+console.log(servicePercentPrice);
+console.log(screens);
+/*
 const appData = {
     rollback: 25,
     title: '',
@@ -10,7 +40,7 @@ const appData = {
     services: {},
 
     isNumber: function(str) {
-        if (str === null || str[0] === ' ' || str[str.length-1] === ' ') {
+        if (str.includes(' ')) {
         return false;
         }
         return !isNaN(parseFloat(str)) && isFinite(str);
@@ -106,3 +136,4 @@ const appData = {
 }
 
 appData.start();
+*/
