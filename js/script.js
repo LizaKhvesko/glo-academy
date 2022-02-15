@@ -38,7 +38,8 @@ const appData = {
         range.addEventListener('input', this.getRollback.bind(this));
         range.addEventListener('change', this.getRollback.bind(this));
         resetBtn.addEventListener('click', this.reset.bind(this));
-        cms.addEventListener('click', this.showCms)
+        cms.addEventListener('change', this.showCms);
+        cmsVariants.addEventListener('change', this.other);
     },
 
     addTitle: function() {
@@ -143,6 +144,14 @@ const appData = {
         } else {
             cmsVariants.style.display = 'none';
         };
+    },
+
+    other: function() {
+        const select = cmsVariants.querySelector('select');
+        const selectName = select.options[select.selectedIndex].textContent;
+        if(selectName === 'Другое') {
+            cmsVariants.querySelector('.main-controls__input').style.display = 'block';
+        }
     },
 
     block: function() {
