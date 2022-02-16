@@ -109,6 +109,9 @@ const appData = {
     },
 
     addPrices: function () {
+        const select = cmsVariants.querySelector('select');
+        const selectValue = select.options[select.selectedIndex].value;
+
         this.screenPrice = this.screens.reduce((sum, accum) => {
             return sum + accum.price;
         }, 0)
@@ -130,6 +133,13 @@ const appData = {
         }
        
          this.fullPrice = +this.screenPrice + this.servicePricesPercent + this.servicePricesNumber;
+         if(Number(selectValue)) {
+             this.fullPrice += this.fullPrice * +selectValue / 100;
+         } else {
+             let percent = cmsVariants.querySelector('#cms-other-input');
+             this.fullPrice += this.fullPrice * +percent.value / 100;
+         }
+
          this.profitNoRollback = Math.ceil(this.fullPrice - this.fullPrice * (this.rollback / 100));
 
          this.screensQuantity = 0;
@@ -149,8 +159,12 @@ const appData = {
     other: function() {
         const select = cmsVariants.querySelector('select');
         const selectName = select.options[select.selectedIndex].textContent;
+        const percentBlock =  cmsVariants.querySelector('.main-controls__input');
+       
         if(selectName === 'Другое') {
-            cmsVariants.querySelector('.main-controls__input').style.display = 'block';
+            percentBlock.style.display = 'block';
+        } else if (selectName !== 'Другое') {
+            percentBlock.style.display = 'none'; 
         }
     },
 
@@ -174,6 +188,13 @@ const appData = {
         resetBtn.style.display = 'none';
         startBtn.style.display = 'block';
         plusButton.removeAttribute("disabled", "disabled");
+    },
+
+    hideCms: function() {
+        if (cms.checked) {
+            cms.checked = false;
+            cmsVariants.style.display = 'none';
+        }
     },
 
     clearResult: function() {
@@ -245,6 +266,7 @@ const appData = {
         this.clearResult();
         this.clearServicesCheckbox();
         this.deleteScreens(); 
+        this.hideCms();
     },
 }
 
