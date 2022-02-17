@@ -195,6 +195,9 @@ const appData = {
             cms.checked = false;
             cmsVariants.style.display = 'none';
         }
+        let percent = cmsVariants.querySelector('#cms-other-input');
+        percent.value = '';
+        console.log(percent.value)
     },
 
     clearResult: function() {
