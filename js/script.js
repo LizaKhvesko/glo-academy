@@ -151,6 +151,10 @@ const appData = {
     showCms: function() {
         if(cms.checked) {
            cmsVariants.style.display = 'flex';
+           cmsVariants.querySelector('select').selectedIndex = 0;
+           if (cmsVariants.querySelector('.main-controls__input')) {
+             cmsVariants.querySelector('.main-controls__input').style.display = 'none';  
+           }
         } else {
             cmsVariants.style.display = 'none';
         };
@@ -197,7 +201,6 @@ const appData = {
         }
         let percent = cmsVariants.querySelector('#cms-other-input');
         percent.value = '';
-        console.log(percent.value)
     },
 
     clearResult: function() {
