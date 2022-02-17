@@ -104,8 +104,13 @@ const appData = {
     },
 
     getRollback: function(event) {
-       rangeValue.textContent =  event.target.value + '%';
-       this.rollback = event.target.value;
+        rangeValue.textContent =  event.target.value + '%';
+        if (this.fullPrice === 0) {
+         this.rollback = event.target.value;
+        } else {
+           this.profitNoRollback =  this.fullPrice - this.fullPrice * event.target.value / 100;
+           profitNoRollbackInput.value = this.profitNoRollback;
+        }
     },
 
     addPrices: function () {
